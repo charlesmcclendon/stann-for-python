@@ -1,0 +1,4 @@
+*.o
+*.so
+stann_wrap.cxx
+*.pyc
