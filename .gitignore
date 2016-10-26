@@ -1,4 +1,5 @@
 *.o
 *.so
-stann_wrap.cxx
+stann_backend_wrap.cxx
+stann_backend.py
 *.pyc

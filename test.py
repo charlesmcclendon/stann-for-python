@@ -1,4 +1,4 @@
-import stann
+import stann_backend
 
 Size = 500
 k = 5
