@@ -91,4 +91,10 @@
 %template(Vector_DPoint_5d_Float)   std::vector<reviver::dpoint<float         , 5>>;
 %template(Vector_DPoint_5d_Double)  std::vector<reviver::dpoint<double        , 5>>;
 
+%extend reviver::dpoint<int, 3> {
+    int* points() {
+        return $self->point_begin();
+    }
+};
+
 %include "stann_inc_dpoint_newRandomPoint.i"

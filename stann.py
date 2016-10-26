@@ -47,6 +47,11 @@ def getStannFunction(prefix, hasPoint=False):
     funcName = getStannFunctionName(prefix, hasPoint)
     return getattr(stann_backend, funcName)
 
+
+def createPointVector():
+    func = getStannFunction("Vector", True)
+    return func() 
+
 def newRandomPoint(min_val, max_val):
     func = getStannFunction("newRandomPoint", True)
     return func(min_val, max_val)
@@ -55,3 +60,21 @@ def configure(dim, data_type, point_type=POINT_TYPE_DPOINT):
     DIM = dim
     DATA_TYPE = data_type
     POINT_TYPE = POINT_TYPE_DPOINT
+
+#stann_backend.DPoint_3d_Int.points = patch_DPoint_3d_Int_points
+
+# To patch the DPoint_DIMd_TYPE functions with a points() func
+# that returns a TYPEArray; it's a wrapper arond point_begin()
+for pointKey, pointValue in POINT_TYPES.items():
+    for dataTypeKey, dataTypeValue in DATA_TYPES.items():
+        for d in range(5):
+            pointClassName = "{0}_{1}d_{2}".format(
+                                            pointValue
+                                            , d+1
+                                            , dataTypeValue)
+            pointClass = getattr(stann_backend, pointClassName)
+            arrayClassFuncName = "{0}Array_frompointer".format(dataTypeValue)
+            arrayClassFunc = getattr(stann_backend, arrayClassFuncName)
+            setattr(pointClass, "points"
+                        , lambda self, bound_arrayClassFunc=arrayClassFunc
+                            : bound_arrayClassFunc(self.point_begin()))

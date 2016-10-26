@@ -2,7 +2,7 @@
 %include "std_string.i"
 %include "stdint.i"
 %include "std_vector.i"
-%include "pointer.i"    
+%include "cpointer.i"
 
 %template(StringVector)   std::vector<std::string>;
 %template(UShortVector)   std::vector<unsigned short>;
@@ -15,45 +15,21 @@
 %template(DoubleVector)   std::vector<double>;
 
 %include "carrays.i"
-%array_class(char               , StannInt8Array);
-%array_class(unsigned char      , StannUInt8Array);
-%array_class(short              , StannInt16Array);
-%array_class(unsigned short     , StannUInt16Array);
-%array_class(int                , StannInt32Array);
-%array_class(unsigned int       , StannUInt32Array);
-%array_class(long               , StannInt64Array);
-%array_class(unsigned long      , StannUInt64Array);
-%array_class(float              , StannFloatArray);
-%array_class(double             , StannDoubleArray);
+%array_class(char               , Int8Array);
+%array_class(unsigned char      , UInt8Array);
+%array_class(short              , ShortArray);
+%array_class(unsigned short     , UShortArray);
+%array_class(int                , IntArray);
+%array_class(unsigned int       , UIntArray);
+%array_class(long               , LongArray);
+%array_class(unsigned long      , ULongArray);
+%array_class(float              , FloatArray);
+%array_class(double             , DoubleArray);
 %{
-/*
-    #include "bruteNN.hpp"
-	#include "dpoint.hpp"
-	#include "rand.hpp"
-	#include "sfcnn.hpp"
-	#include "sfcnn_king.hpp"
-	#include "gmst.hpp"
-	#include "zorder_lt.hpp"
-*/
     #include "test.hpp"
 %}
-
-/*%include "test.hpp"
-%template(testZLT_IntInt) ::testZLT<unsigned int, 3>;*/
 
 %include "stann_inc_test_hpp.i"
 %include "stann_inc_dpoint_hpp.i"
 %include "stann_inc_bruteNN_hpp.i"
 %include "stann_inc_sfcnn_hpp.i"
-
-/*
-%include "bruteNN.hpp"
-%include "dpoint.hpp"
-%include "rand.hpp"
-%include "sfcnn.hpp"
-%include "sfcnn_king.hpp"
-%include "gmst.hpp"
-%include "zorder_lt.hpp"
-*/
-
-/*%include "test.hpp"*/
