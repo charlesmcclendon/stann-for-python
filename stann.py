@@ -84,11 +84,9 @@ def sfcnn(pointVector, n):
 def sfcnn_knng(pointVector, n, k, epsilon=0.0, num_threads=None):
     num_threads = num_threads if num_threads else NUM_THREADS
     if DATA_TYPES[DATA_TYPE] in ["Float", "Double"]:
-        return getStannClass("sfcnn_knng", hasPoint=True)
-                                (pointVector, n, k, epsilon, num_threads)
+        return getStannClass("sfcnn_knng", hasPoint=True)(pointVector, n, k, epsilon, num_threads)
     else:
-        return getStannClass("sfcnn_knng", hasPoint=True)
-                                (pointVector, n, k, num_threads)
+        return getStannClass("sfcnn_knng", hasPoint=True)(pointVector, n, k, num_threads)
 
 def newRandomPoint(min_val, max_val):
     func = getStannFunction("newRandomPoint", hasPoint=True)
@@ -135,10 +133,10 @@ for pointKey, pointValue in POINT_TYPES.items():
             setattr(vectorClass, "DATA_TYPE", dataTypeValue)
 
 
-            algoNames = ["bruteNN", "sfcnn", "sfcnn_knng"]
+            algoNames = ["bruteNN"]#, "sfcnn"]#, "sfcnn_knng"]
             for algoName in algoNames:
-                if dim != 3 or dataTypeValue != "Int":
-                    continue
+#                if dim != 3 or dataTypeValue != "Int":
+#                    continue
 
                 algoClass = getStannClass(algoName, hasPoint=True, dim=dim, dataType=dataTypeKey)
                 setattr(algoClass, "DIM", dim)
