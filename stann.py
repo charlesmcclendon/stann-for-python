@@ -32,6 +32,8 @@ DATA_TYPES = {
     DATA_TYPE_DOUBLE: 	"Double",
 }
 
+NUM_THREADS = 1
+
 def getStannName(prefix, hasPoint=False, dim=None, dataType=None):
     dim = dim if dim else DIM
     dataType = dataType if dataType else DATA_TYPE
@@ -79,6 +81,15 @@ def bruteNN(pointVector, n):
 def sfcnn(pointVector, n):
     return getStannClass("sfcnn", hasPoint=True)(pointVector, n)
 
+def sfcnn_knng(pointVector, n, k, epsilon=0.0, num_threads=None):
+    num_threads = num_threads if num_threads else NUM_THREADS
+    if DATA_TYPES[DATA_TYPE] in ["Float", "Double"]:
+        return getStannClass("sfcnn_knng", hasPoint=True)
+                                (pointVector, n, k, epsilon, num_threads)
+    else:
+        return getStannClass("sfcnn_knng", hasPoint=True)
+                                (pointVector, n, k, num_threads)
+
 def newRandomPoint(min_val, max_val):
     func = getStannFunction("newRandomPoint", hasPoint=True)
     return func(min_val, max_val)
@@ -94,8 +105,8 @@ for dataTypeKey, dataTypeValue in DATA_TYPES.items():
     thisModule = sys.modules[__name__]
     setattr(thisModule, className, getattr(stann_backend, className))
 
-# To patch the DPoint_DIMd_TYPE functions with a points() func
-# that returns a TYPEArray; it's a wrapper arond point_begin()
+# make several different properties and methods available to
+# the stann.py python wrapper
 for pointKey, pointValue in POINT_TYPES.items():
     for dataTypeKey, dataTypeValue in DATA_TYPES.items():
         for d in range(MAX_DIM):
@@ -124,7 +135,7 @@ for pointKey, pointValue in POINT_TYPES.items():
             setattr(vectorClass, "DATA_TYPE", dataTypeValue)
 
 
-            algoNames = ["bruteNN", "sfcnn"]
+            algoNames = ["bruteNN", "sfcnn", "sfcnn_knng"]
             for algoName in algoNames:
                 if dim != 3 or dataTypeValue != "Int":
                     continue
