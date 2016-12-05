@@ -88,9 +88,15 @@ def sfcnn_knng(pointVector, n, k, epsilon=0.0, num_threads=None):
     else:
         return getStannClass("sfcnn_knng", hasPoint=True)(pointVector, n, k, num_threads)
 
+def zorderLT():
+    return getStannClass("zorderLT", hasPoint=True)()
+
 def newRandomPoint(min_val, max_val):
     func = getStannFunction("newRandomPoint", hasPoint=True)
     return func(min_val, max_val)
+
+def setPointHelper(point, index, value):
+    point.coords()[index] = value
 
 def configure(dim, data_type, point_type=POINT_TYPE_DPOINT):
     DIM = dim
@@ -116,15 +122,25 @@ for pointKey, pointValue in POINT_TYPES.items():
             pointClass = getattr(stann_backend, pointClassName)
             arrayClassFuncName = "{0}Array_frompointer".format(dataTypeValue)
             arrayClassFunc = getattr(stann_backend, arrayClassFuncName)
-            setattr(pointClass, "points"
+            setattr(pointClass, "coords"
                         , lambda self, bound_arrayClassFunc=arrayClassFunc
                             : bound_arrayClassFunc(self.point_begin()))
 
             dimAttrName = "_{0}__DIM".format(pointClassName)
             setattr(pointClass, "DIM", getattr(pointClass, dimAttrName))
-            setattr(pointClass, "point_set"
+            setattr(pointClass, "coords_tuple"
                         , lambda self, 
-                            : set([self.points()[i] for i in range(self.DIM)]))
+                            : tuple([self.coords()[i] for i in range(self.DIM)]))
+
+            setattr(pointClass, "__len__", lambda self: self.DIM)
+
+            setattr(pointClass, "__eq__", lambda self, other: self.coords_tuple() == other.coords_tuple())
+
+            setattr(pointClass, "__getitem__"
+                        , lambda self, index
+                            : self.coords()[index])
+
+            setattr(pointClass, "__setitem__", setPointHelper)
 
             setattr(pointClass, "DATA_TYPE", dataTypeValue)
 
@@ -133,16 +149,18 @@ for pointKey, pointValue in POINT_TYPES.items():
             setattr(vectorClass, "DATA_TYPE", dataTypeValue)
 
 
-            algoNames = ["bruteNN"]#, "sfcnn"]#, "sfcnn_knng"]
+            algoNames = ["bruteNN", "sfcnn", "sfcnn_knng", "zorderLT"]
+            omitAlgoFromCreateDataVector = ["zorderLT"]
             for algoName in algoNames:
-#                if dim != 3 or dataTypeValue != "Int":
-#                    continue
 
                 algoClass = getStannClass(algoName, hasPoint=True, dim=dim, dataType=dataTypeKey)
                 setattr(algoClass, "DIM", dim)
                 setattr(algoClass, "DATA_TYPE", dataTypeValue)
                 setattr(algoClass, "POINT_TYPE", pointValue)
-                setattr(algoClass, "createDataVector"
-                        , lambda self, bound_dataType=dataTypeKey
-                            : createDataVector(dataType=bound_dataType))
+
+
+                if not algoName in omitAlgoFromCreateDataVector:
+                    setattr(algoClass, "createDataVector"
+                            , lambda self, bound_dataType=dataTypeKey
+                                : createDataVector(dataType=bound_dataType))
 

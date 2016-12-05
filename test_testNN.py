@@ -5,6 +5,7 @@ k = 5
 nnMin = -1000000000
 nnMax =  1000000000
 
+
 data = stann.createPointVector()
 query = stann.createPointVector()
 bf_ans = stann.createAnswerVector()

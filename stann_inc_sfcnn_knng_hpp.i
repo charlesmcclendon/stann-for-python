@@ -1,5 +1,61 @@
 %include "sfcnn_knng.hpp"
 
+
+%define sfcnn_knng_getitem(T, D)
+
+%extend sfcnn_knng<reviver::dpoint<T, D>, D, T> {
+    std::vector<long unsigned int>& __getitem__(unsigned long i) {
+        return (*($self))[i];
+    }
+};
+
+%enddef
+
+sfcnn_knng_getitem(unsigned short, 1)
+sfcnn_knng_getitem(short,          1)
+sfcnn_knng_getitem(unsigned int,   1)
+sfcnn_knng_getitem(int,            1)
+sfcnn_knng_getitem(unsigned long,  1)
+sfcnn_knng_getitem(long,           1)
+sfcnn_knng_getitem(float,          1)
+sfcnn_knng_getitem(double,         1)
+
+sfcnn_knng_getitem(unsigned short, 2)
+sfcnn_knng_getitem(short,          2)
+sfcnn_knng_getitem(unsigned int,   2)
+sfcnn_knng_getitem(int,            2)
+sfcnn_knng_getitem(unsigned long,  2)
+sfcnn_knng_getitem(long,           2)
+sfcnn_knng_getitem(float,          2)
+sfcnn_knng_getitem(double,         2)
+
+sfcnn_knng_getitem(unsigned short, 3)
+sfcnn_knng_getitem(short,          3)
+sfcnn_knng_getitem(unsigned int,   3)
+sfcnn_knng_getitem(int,            3)
+sfcnn_knng_getitem(unsigned long,  3)
+sfcnn_knng_getitem(long,           3)
+sfcnn_knng_getitem(float,          3)
+sfcnn_knng_getitem(double,         3)
+
+sfcnn_knng_getitem(unsigned short, 4)
+sfcnn_knng_getitem(short,          4)
+sfcnn_knng_getitem(unsigned int,   4)
+sfcnn_knng_getitem(int,            4)
+sfcnn_knng_getitem(unsigned long,  4)
+sfcnn_knng_getitem(long,           4)
+sfcnn_knng_getitem(float,          4)
+sfcnn_knng_getitem(double,         4)
+
+sfcnn_knng_getitem(unsigned short, 5)
+sfcnn_knng_getitem(short,          5)
+sfcnn_knng_getitem(unsigned int,   5)
+sfcnn_knng_getitem(int,            5)
+sfcnn_knng_getitem(unsigned long,  5)
+sfcnn_knng_getitem(long,           5)
+sfcnn_knng_getitem(float,          5)
+sfcnn_knng_getitem(double,         5)
+
 /* sfcnn_knng */
 %template(sfcnn_knng_DPoint_1d_UShort)       ::sfcnn_knng<reviver::dpoint<unsigned short, 1>, 1, unsigned short>;
 %template(sfcnn_knng_DPoint_1d_Short)        ::sfcnn_knng<reviver::dpoint<short         , 1>, 1, short         >;
@@ -46,3 +102,10 @@
 %template(sfcnn_knng_DPoint_5d_Float)        ::sfcnn_knng<reviver::dpoint<float         , 5>, 5, float         >;
 %template(sfcnn_knng_DPoint_5d_Double)       ::sfcnn_knng<reviver::dpoint<double        , 5>, 5, double        >;
 
+/*
+%extend ::sfcnn_knng<reviver::dpoint<double, 3>, 3, double>{
+    unsigned long Get2(unsigned long i) {
+        return (*($self))[i];
+    }
+};
+*/

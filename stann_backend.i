@@ -33,3 +33,6 @@
 %include "stann_inc_dpoint_hpp.i"
 %include "stann_inc_bruteNN_hpp.i"
 %include "stann_inc_sfcnn_hpp.i"
+%include "stann_inc_sfcnn_hpp.i"
+%include "stann_inc_sfcnn_knng_hpp.i"
+%include "stann_inc_zorderLT.i"
