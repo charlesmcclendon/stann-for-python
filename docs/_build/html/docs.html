@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Documentation &#8212; stann_for_python 1.0 documentation</title>
+    <title>3. Documentation &#8212; stann_for_python 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -26,7 +26,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="top" title="stann_for_python 1.0 documentation" href="index.html" />
-    <link rel="prev" title="Introduction" href="intro.html" />
+    <link rel="prev" title="2. Configuration" href="config.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -43,7 +43,59 @@
           <div class="body" role="main">
             
   <div class="section" id="documentation">
-<h1>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h1>
+<h1>3. Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-stann"></span><dl class="function">
+<dt id="stann.newRandomPoint">
+<code class="descclassname">stann.</code><code class="descname">newRandomPoint</code><span class="sig-paren">(</span><em>min_val</em>, <em>max_val</em><span class="sig-paren">)</span><a class="headerlink" href="#stann.newRandomPoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a random point with component values between
+min_val and max_val.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="stann.createPointVector">
+<code class="descclassname">stann.</code><code class="descname">createPointVector</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#stann.createPointVector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates an empty vector with dimension and data type
+matching the module configuration.</p>
+</dd></dl>
+
+<div class="section" id="algorithm-classes">
+<h2>3.1. Algorithm Classes<a class="headerlink" href="#algorithm-classes" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="stann.bruteNN">
+<em class="property">class </em><code class="descclassname">stann.</code><code class="descname">bruteNN</code><span class="sig-paren">(</span><em>pointVector</em>, <em>n</em><span class="sig-paren">)</span><a class="headerlink" href="#stann.bruteNN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object for performing nearest neighbor calculations by
+brute force. The dimension and data type are
+determined by the dimension and data type of pointVector.
+Parameter n represents the number of points in pointVector.</p>
+<dl class="method">
+<dt id="stann.bruteNN.ksearch">
+<code class="descname">ksearch</code><span class="sig-paren">(</span><em>point</em>, <em>k</em>, <em>ans_vector</em><span class="sig-paren">)</span><a class="headerlink" href="#stann.bruteNN.ksearch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform a nearest neighbor search on parameter point. Find
+the k nearest neighbors and store them inside ans_vector.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="stann.sfcnn">
+<em class="property">class </em><code class="descclassname">stann.</code><code class="descname">sfcnn</code><span class="sig-paren">(</span><em>pointVector</em>, <em>n</em><span class="sig-paren">)</span><a class="headerlink" href="#stann.sfcnn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Similar to bruteNN but the nearest neighbor calculations
+are optimized.</p>
+<dl class="method">
+<dt id="stann.sfcnn.ksearch">
+<code class="descname">ksearch</code><span class="sig-paren">(</span><em>point</em>, <em>k</em>, <em>ans_vector</em><span class="sig-paren">)</span><a class="headerlink" href="#stann.sfcnn.ksearch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="stann.sfcnn_knng">
+<em class="property">class </em><code class="descclassname">stann.</code><code class="descname">sfcnn_knng</code><span class="sig-paren">(</span><em>pointVector</em>, <em>n</em><span class="sig-paren">)</span><a class="headerlink" href="#stann.sfcnn_knng" title="Permalink to this definition">¶</a></dt>
+<dd><p>Similar to bruteNN but the nearest neighbor calculations
+are optimized and  multi-threading is used.</p>
+</dd></dl>
+
+</div>
 </div>
 
 
@@ -51,11 +103,19 @@
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper"><div class="relations">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">3. Documentation</a><ul>
+<li><a class="reference internal" href="#algorithm-classes">3.1. Algorithm Classes</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="intro.html" title="previous chapter">Introduction</a></li>
+      <li>Previous: <a href="config.html" title="previous chapter">2. Configuration</a></li>
   </ul></li>
 </ul>
 </div>

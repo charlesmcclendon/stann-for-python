@@ -10,8 +10,10 @@ Content:
 
 .. toctree::
    :maxdepth: 2
+   :numbered:
 
    intro
+   config
    docs
 
 Indices and tables

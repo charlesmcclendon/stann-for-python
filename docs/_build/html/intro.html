@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Introduction &#8212; stann_for_python 1.0 documentation</title>
+    <title>1. Introduction &#8212; stann_for_python 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -26,7 +26,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="top" title="stann_for_python 1.0 documentation" href="index.html" />
-    <link rel="next" title="Tutorial" href="tutorial.html" />
+    <link rel="next" title="2. Configuration" href="config.html" />
     <link rel="prev" title="Welcome to stann_for_python’s documentation!" href="index.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -44,7 +44,7 @@
           <div class="body" role="main">
             
   <div class="section" id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<h1>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
 <p>The stann python module wraps the C++ Stann library which
 implements a number of nearest neighbor algorithms and custom
 data types.
@@ -60,24 +60,9 @@ is finding a way to handle all the function and class templates
 behind the scenes so that we can deliver concise and intuitive
 function and class names to users.
 The main idea behind our solution is to provide a function
-configure which allows you to configure the global module variables:</p>
-<dl class="function">
-<dt id="configure">
-<code class="descname">configure</code><span class="sig-paren">(</span><em>dim</em>, <em>data_type</em>, <em>point_type=POINT_TYPE_DPOINT</em><span class="sig-paren">)</span><a class="headerlink" href="#configure" title="Permalink to this definition">¶</a></dt>
-<dd><p>DIM represents the number of dimensions of the vector space you
-are working in.
-DATA_TYPE represents the data type of the points, for example int or float.
-POINT_TYPE is the type of point you choose to use from the original
-Stann library; this value defaults to dpoint:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">DIM</span> <span class="o">=</span> <span class="n">dim</span>
-<span class="n">DATA_TYPE</span> <span class="o">=</span> <span class="n">data_type</span>
-<span class="n">POINT_TYPE</span> <span class="o">=</span> <span class="n">point_type</span>
-</pre></div>
-</div>
-</dd></dl>
-
+<a class="reference internal" href="config.html#configure" title="configure"><code class="xref py py-func docutils literal"><span class="pre">configure()</span></code></a> which allows you to configure the global module variables.</p>
 <p>After configuring these values you can call stann functions like
-newRandomPoint() and classes like bruteNN() without having to specify
+<a class="reference internal" href="config.html#newRandomPoint" title="newRandomPoint"><code class="xref py py-func docutils literal"><span class="pre">newRandomPoint()</span></code></a> and classes like <a class="reference internal" href="config.html#bruteNN" title="bruteNN"><code class="xref py py-func docutils literal"><span class="pre">bruteNN()</span></code></a> without having to specify
 the dimension and data type of the vector space each time.</p>
 </div>
 
@@ -91,7 +76,7 @@ the dimension and data type of the vector space each time.</p>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="index.html" title="previous chapter">Welcome to stann_for_python&#8217;s documentation!</a></li>
-      <li>Next: <a href="tutorial.html" title="next chapter">Tutorial</a></li>
+      <li>Next: <a href="config.html" title="next chapter">2. Configuration</a></li>
   </ul></li>
 </ul>
 </div>
