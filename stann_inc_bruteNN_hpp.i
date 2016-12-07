@@ -1,6 +1,31 @@
 %include "bruteNN.hpp"
 
 /* bruteNN */
+
+%define bruteNN__template(T, PT, D)
+
+%template(bruteNN_DPoint_ ## D ## d_ ## PT ## )  ::bruteNN<reviver::dpoint<T, D>>;
+
+%enddef
+
+%define bruteNN(D)
+    bruteNN__template(unsigned short, UShort, D)
+    bruteNN__template(short, Short, D)
+    bruteNN__template(unsigned int, UInt, D)
+    bruteNN__template(int, Int, D)
+    bruteNN__template(unsigned long, ULong, D)
+    bruteNN__template(long, Long, D)
+    bruteNN__template(float, Float, D)
+    bruteNN__template(double, Double, D)
+%enddef
+
+bruteNN(1)
+bruteNN(2)
+bruteNN(3)
+bruteNN(4)
+bruteNN(5)
+
+/*
 %template(bruteNN_DPoint_1d_UShort)  ::bruteNN<reviver::dpoint<unsigned short, 1>>;
 %template(bruteNN_DPoint_1d_Short)   ::bruteNN<reviver::dpoint<short         , 1>>;
 %template(bruteNN_DPoint_1d_UInt)    ::bruteNN<reviver::dpoint<unsigned int  , 1>>;
@@ -45,4 +70,4 @@
 %template(bruteNN_DPoint_5d_Long)    ::bruteNN<reviver::dpoint<long          , 5>>;
 %template(bruteNN_DPoint_5d_Float)   ::bruteNN<reviver::dpoint<float         , 5>>;
 %template(bruteNN_DPoint_5d_Double)  ::bruteNN<reviver::dpoint<double        , 5>>;
-
+*/

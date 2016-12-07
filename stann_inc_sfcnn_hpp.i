@@ -1,6 +1,31 @@
 %include "sfcnn.hpp"
 
 /* sfcnn */
+
+%define sfcnn__template(T, PT, D)
+
+%template(sfcnn_DPoint_ ## D ## d_ ## PT ## )  ::sfcnn<reviver::dpoint<T, D>, D, T>;
+
+%enddef
+
+%define sfcnn(D)
+    sfcnn__template(unsigned short, UShort, D)
+    sfcnn__template(short, Short, D)
+    sfcnn__template(unsigned int, UInt, D)
+    sfcnn__template(int, Int, D)
+    sfcnn__template(unsigned long, ULong, D)
+    sfcnn__template(long, Long, D)
+    sfcnn__template(float, Float, D)
+    sfcnn__template(double, Double, D)
+%enddef
+
+sfcnn(1)
+sfcnn(2)
+sfcnn(3)
+sfcnn(4)
+sfcnn(5)
+
+/*
 %template(sfcnn_DPoint_1d_UShort)  ::sfcnn<reviver::dpoint<unsigned short, 1>, 1, unsigned short>;
 %template(sfcnn_DPoint_1d_Short)   ::sfcnn<reviver::dpoint<short         , 1>, 1, short         >;
 %template(sfcnn_DPoint_1d_UInt)    ::sfcnn<reviver::dpoint<unsigned int  , 1>, 1, unsigned int  >;
@@ -45,4 +70,4 @@
 %template(sfcnn_DPoint_5d_Long)    ::sfcnn<reviver::dpoint<long          , 5>, 5, long          >;
 %template(sfcnn_DPoint_5d_Float)   ::sfcnn<reviver::dpoint<float         , 5>, 5, float         >;
 %template(sfcnn_DPoint_5d_Double)  ::sfcnn<reviver::dpoint<double        , 5>, 5, double        >;
-
+*/
