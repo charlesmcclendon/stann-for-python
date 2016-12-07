@@ -58,12 +58,12 @@ and confusing names that are kept in the stann_backend module.
 The main difficulty in creating a python wrapper for Stann
 is finding a way to handle all the function and class templates
 behind the scenes so that we can deliver concise and intuitive
-function and class names to users.
-The main idea behind our solution is to provide a function
-<a class="reference internal" href="config.html#configure" title="configure"><code class="xref py py-func docutils literal"><span class="pre">configure()</span></code></a> which allows you to configure the global module variables.</p>
-<p>After configuring these values you can call stann functions like
-<a class="reference internal" href="config.html#newRandomPoint" title="newRandomPoint"><code class="xref py py-func docutils literal"><span class="pre">newRandomPoint()</span></code></a> and classes like <a class="reference internal" href="config.html#bruteNN" title="bruteNN"><code class="xref py py-func docutils literal"><span class="pre">bruteNN()</span></code></a> without having to specify
-the dimension and data type of the vector space each time.</p>
+function and class names to users. The main idea behind our
+solution is to provide a function <a class="reference internal" href="config.html#configure" title="configure"><code class="xref py py-func docutils literal"><span class="pre">configure()</span></code></a> which allows
+you to configure the global module variables.
+After configuring these values you can use stann functions and
+classes without having to specify the dimension and data type
+of the vector space each time.</p>
 </div>
 
 
@@ -102,7 +102,7 @@ the dimension and data type of the vector space each time.</p>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2016, Charles Mcclendon, Duncan Fisher.
+      &copy;2016, Charles McClendon, Duncan Fisher.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.9</a>

@@ -44,21 +44,7 @@
             
   <div class="section" id="documentation">
 <h1>3. Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h1>
-<span class="target" id="module-stann"></span><dl class="function">
-<dt id="stann.newRandomPoint">
-<code class="descclassname">stann.</code><code class="descname">newRandomPoint</code><span class="sig-paren">(</span><em>min_val</em>, <em>max_val</em><span class="sig-paren">)</span><a class="headerlink" href="#stann.newRandomPoint" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generates a random point with component values between
-min_val and max_val.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="stann.createPointVector">
-<code class="descclassname">stann.</code><code class="descname">createPointVector</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#stann.createPointVector" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generates an empty vector with dimension and data type
-matching the module configuration.</p>
-</dd></dl>
-
-<div class="section" id="algorithm-classes">
+<span class="target" id="module-stann"></span><div class="section" id="algorithm-classes">
 <h2>3.1. Algorithm Classes<a class="headerlink" href="#algorithm-classes" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="stann.bruteNN">
@@ -67,6 +53,18 @@ matching the module configuration.</p>
 brute force. The dimension and data type are
 determined by the dimension and data type of pointVector.
 Parameter n represents the number of points in pointVector.</p>
+<dl class="data">
+<dt id="stann.bruteNN.DIM">
+<code class="descname">DIM</code><a class="headerlink" href="#stann.bruteNN.DIM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dimension of the vector space.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="stann.bruteNN.DATA_TYPE">
+<code class="descname">DATA_TYPE</code><a class="headerlink" href="#stann.bruteNN.DATA_TYPE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data type of the points.</p>
+</dd></dl>
+
 <dl class="method">
 <dt id="stann.bruteNN.ksearch">
 <code class="descname">ksearch</code><span class="sig-paren">(</span><em>point</em>, <em>k</em>, <em>ans_vector</em><span class="sig-paren">)</span><a class="headerlink" href="#stann.bruteNN.ksearch" title="Permalink to this definition">¶</a></dt>
@@ -80,19 +78,130 @@ the k nearest neighbors and store them inside ans_vector.</p>
 <dt id="stann.sfcnn">
 <em class="property">class </em><code class="descclassname">stann.</code><code class="descname">sfcnn</code><span class="sig-paren">(</span><em>pointVector</em>, <em>n</em><span class="sig-paren">)</span><a class="headerlink" href="#stann.sfcnn" title="Permalink to this definition">¶</a></dt>
 <dd><p>Similar to bruteNN but the nearest neighbor calculations
-are optimized.</p>
+are optimized using a space filling curve algorithm.</p>
+<dl class="data">
+<dt id="stann.sfcnn.DIM">
+<code class="descname">DIM</code><a class="headerlink" href="#stann.sfcnn.DIM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dimension of the vector space.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="stann.sfcnn.DATA_TYPE">
+<code class="descname">DATA_TYPE</code><a class="headerlink" href="#stann.sfcnn.DATA_TYPE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data type of the points.</p>
+</dd></dl>
+
 <dl class="method">
 <dt id="stann.sfcnn.ksearch">
 <code class="descname">ksearch</code><span class="sig-paren">(</span><em>point</em>, <em>k</em>, <em>ans_vector</em><span class="sig-paren">)</span><a class="headerlink" href="#stann.sfcnn.ksearch" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Perform a nearest neighbor search on parameter point. Find
+the k nearest neighbors and store them inside ans_vector.</p>
+</dd></dl>
 
 </dd></dl>
 
 <dl class="class">
 <dt id="stann.sfcnn_knng">
 <em class="property">class </em><code class="descclassname">stann.</code><code class="descname">sfcnn_knng</code><span class="sig-paren">(</span><em>pointVector</em>, <em>n</em><span class="sig-paren">)</span><a class="headerlink" href="#stann.sfcnn_knng" title="Permalink to this definition">¶</a></dt>
-<dd><p>Similar to bruteNN but the nearest neighbor calculations
-are optimized and  multi-threading is used.</p>
+<dd><p>Similar to sfcnn but the nearest neighbor calculations
+are optimized using multi-threading.</p>
+<dl class="data">
+<dt id="stann.sfcnn_knng.DIM">
+<code class="descname">DIM</code><a class="headerlink" href="#stann.sfcnn_knng.DIM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dimension of the vector space.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="stann.sfcnn_knng.DATA_TYPE">
+<code class="descname">DATA_TYPE</code><a class="headerlink" href="#stann.sfcnn_knng.DATA_TYPE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data type of the points.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="stann.sfcnn_knng.ksearch">
+<code class="descname">ksearch</code><span class="sig-paren">(</span><em>point</em>, <em>k</em>, <em>ans_vector</em><span class="sig-paren">)</span><a class="headerlink" href="#stann.sfcnn_knng.ksearch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform a nearest neighbor search on parameter point. Find
+the k nearest neighbors and store them inside ans_vector.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="stann.zorderLT">
+<em class="property">class </em><code class="descclassname">stann.</code><code class="descname">zorderLT</code><a class="headerlink" href="#stann.zorderLT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object used to impose a total order on an n-dimensional
+point cloud. Only for use on point clouds with integral
+coordinates. Example usage:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stann</span>
+
+<span class="n">stann</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">stann</span><span class="o">.</span><span class="n">DATA_TYPE_INT</span><span class="p">)</span>
+<span class="n">p1</span> <span class="o">=</span> <span class="n">newRandomPoint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">newRandomPoint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">lt</span> <span class="o">=</span> <span class="n">stann</span><span class="o">.</span><span class="n">zorderLT</span><span class="p">()</span>
+
+<span class="k">if</span><span class="p">(</span><span class="n">lt</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;p1 &lt; p2&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="utility-functions">
+<h2>3.2. Utility Functions<a class="headerlink" href="#utility-functions" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="stann.newRandomPoint">
+<code class="descclassname">stann.</code><code class="descname">newRandomPoint</code><span class="sig-paren">(</span><em>min_val</em>, <em>max_val</em><span class="sig-paren">)</span><a class="headerlink" href="#stann.newRandomPoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a random point with component values between
+min_val and max_val.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="stann.createPointVector">
+<code class="descclassname">stann.</code><code class="descname">createPointVector</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#stann.createPointVector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates an empty vector of points with dimension and data type
+matching the module configuration.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="stann.createAnswerVector">
+<code class="descclassname">stann.</code><code class="descname">createAnswerVector</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#stann.createAnswerVector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates an empty vector of long integers. Used for storing
+results of <code class="xref py py-func docutils literal"><span class="pre">ksearch()</span></code>.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="point-class">
+<h2>3.3. Point Class<a class="headerlink" href="#point-class" title="Permalink to this headline">¶</a></h2>
+<p>Once you have created points with utility functions like
+<a class="reference internal" href="#stann.newRandomPoint" title="stann.newRandomPoint"><code class="xref py py-func docutils literal"><span class="pre">newRandomPoint()</span></code></a> and <a class="reference internal" href="#stann.createPointVector" title="stann.createPointVector"><code class="xref py py-func docutils literal"><span class="pre">createPointVector()</span></code></a> there are a
+number of helper methods you can use to access and manipulate
+their data.</p>
+<dl class="class">
+<dt id="stann.Point">
+<em class="property">class </em><code class="descclassname">stann.</code><code class="descname">Point</code><a class="headerlink" href="#stann.Point" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="data">
+<dt id="stann.Point.coords">
+<code class="descname">coords</code><a class="headerlink" href="#stann.Point.coords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mutable list that represents the coordinates of the point.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="stann.Point.coords_tuple">
+<code class="descname">coords_tuple</code><a class="headerlink" href="#stann.Point.coords_tuple" title="Permalink to this definition">¶</a></dt>
+<dd><p>Immutable python tuple that represents the coordinates of the point.
+Usage:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stann</span>
+
+<span class="n">stann</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">stann</span><span class="o">.</span><span class="n">DATA_TYPE_INT</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">stann</span><span class="o">.</span><span class="n">newRandomPoint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">coords</span><span class="p">)</span>            <span class="c1"># [2, 4, 5]</span>
+<span class="n">p</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">coords_tuple</span><span class="p">)</span>      <span class="c1"># (2, 4, 3)</span>
+</pre></div>
+</div>
+</dd></dl>
+
 </dd></dl>
 
 </div>
@@ -108,6 +217,8 @@ are optimized and  multi-threading is used.</p>
   <ul>
 <li><a class="reference internal" href="#">3. Documentation</a><ul>
 <li><a class="reference internal" href="#algorithm-classes">3.1. Algorithm Classes</a></li>
+<li><a class="reference internal" href="#utility-functions">3.2. Utility Functions</a></li>
+<li><a class="reference internal" href="#point-class">3.3. Point Class</a></li>
 </ul>
 </li>
 </ul>
@@ -141,7 +252,7 @@ are optimized and  multi-threading is used.</p>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2016, Charles Mcclendon, Duncan Fisher.
+      &copy;2016, Charles McClendon, Duncan Fisher.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.9</a>

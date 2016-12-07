@@ -50,8 +50,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'stann_for_python'
-copyright = '2016, Charles Mcclendon, Duncan Fisher'
-author = 'Charles Mcclendon, Duncan Fisher'
+copyright = '2016, Charles McClendon, Duncan Fisher'
+author = 'Charles McClendon, Duncan Fisher'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the

@@ -78,10 +78,17 @@ use from the original Stann library</td>
 are working in.
 DATA_TYPE represents the data type of the points, for example int or float.
 POINT_TYPE is the type of point you choose to use from the original
-Stann library; this value defaults to dpoint:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">DIM</span> <span class="o">=</span> <span class="n">dim</span>
-<span class="n">DATA_TYPE</span> <span class="o">=</span> <span class="n">data_type</span>
-<span class="n">POINT_TYPE</span> <span class="o">=</span> <span class="n">point_type</span>
+Stann library; this value defaults to dpoint. Example usage:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stann</span>
+
+<span class="n">stann</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">stann</span><span class="o">.</span><span class="n">DATA_TYPE_INT</span><span class="p">)</span>
+<span class="n">int_5d</span> <span class="o">=</span> <span class="n">stann</span><span class="o">.</span><span class="n">newRandomPoint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">stann</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">stann</span><span class="o">.</span><span class="n">DATA_TYPE_FLOAT</span><span class="p">)</span>
+<span class="n">float_2d</span> <span class="o">=</span> <span class="n">stann</span><span class="o">.</span><span class="n">newRandomPoint</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">int_5d</span><span class="o">.</span><span class="n">coords_tuple</span><span class="p">)</span>        <span class="c1"># (14, 95, 19, 51, 65)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">float_2d</span><span class="o">.</span><span class="n">coords</span><span class="p">)</span>            <span class="c1"># (24.48573, 83.42035)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -124,7 +131,7 @@ Stann library; this value defaults to dpoint:</p>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2016, Charles Mcclendon, Duncan Fisher.
+      &copy;2016, Charles McClendon, Duncan Fisher.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.9</a>

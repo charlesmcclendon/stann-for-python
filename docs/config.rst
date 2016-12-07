@@ -19,14 +19,25 @@ Configuration
 +----------+-------------------------------------------+
 
 
+
+
 .. function:: configure(dim, data_type, point_type=POINT_TYPE_DPOINT)
 
    DIM represents the number of dimensions of the vector space you
    are working in.
    DATA_TYPE represents the data type of the points, for example int or float.
    POINT_TYPE is the type of point you choose to use from the original
-   Stann library; this value defaults to dpoint::
+   Stann library; this value defaults to dpoint. Example usage::
 
-      DIM = dim
-      DATA_TYPE = data_type
-      POINT_TYPE = point_type
+      import stann
+
+      stann.configure(2, stann.DATA_TYPE_INT)
+      int_5d = stann.newRandomPoint(0,100)
+
+      stann.configure(2, stann.DATA_TYPE_FLOAT)
+      float_2d = stann.newRandomPoint(0.0, 100.0)
+
+      print(int_5d.coords_tuple)        # (14, 95, 19, 51, 65)
+      print(float_2d.coords)            # (24.48573, 83.42035)
+
+       
