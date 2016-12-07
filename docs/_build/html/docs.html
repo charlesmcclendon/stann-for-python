@@ -17,7 +17,8 @@
         VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
@@ -25,7 +26,6 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="stann_for_python 1.0 documentation" href="index.html" />
     <link rel="prev" title="2. Configuration" href="config.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -167,7 +167,7 @@ matching the module configuration.</p>
 <dt id="stann.createAnswerVector">
 <code class="descclassname">stann.</code><code class="descname">createAnswerVector</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#stann.createAnswerVector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates an empty vector of long integers. Used for storing
-results of <code class="xref py py-func docutils literal"><span class="pre">ksearch()</span></code>.</p>
+results of <code class="xref py py-func docutils literal"><span class="pre">ksearch()</span></code> utilized by <cite>bruteNN</cite> and <cite>sfcnn</cite>.</p>
 </dd></dl>
 
 </div>
@@ -176,28 +176,29 @@ results of <code class="xref py py-func docutils literal"><span class="pre">ksea
 <p>Once you have created points with utility functions like
 <a class="reference internal" href="#stann.newRandomPoint" title="stann.newRandomPoint"><code class="xref py py-func docutils literal"><span class="pre">newRandomPoint()</span></code></a> and <a class="reference internal" href="#stann.createPointVector" title="stann.createPointVector"><code class="xref py py-func docutils literal"><span class="pre">createPointVector()</span></code></a> there are a
 number of helper methods you can use to access and manipulate
-their data.</p>
+their data. Also, note that the __eq__ is implemented so that
+the user may compare two points for equality.</p>
 <dl class="class">
 <dt id="stann.Point">
 <em class="property">class </em><code class="descclassname">stann.</code><code class="descname">Point</code><a class="headerlink" href="#stann.Point" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="data">
+<dd><dl class="method">
 <dt id="stann.Point.coords">
-<code class="descname">coords</code><a class="headerlink" href="#stann.Point.coords" title="Permalink to this definition">¶</a></dt>
-<dd><p>Mutable list that represents the coordinates of the point.</p>
+<code class="descname">coords</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#stann.Point.coords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list that represents the coordinates of the point.</p>
 </dd></dl>
 
-<dl class="data">
+<dl class="method">
 <dt id="stann.Point.coords_tuple">
-<code class="descname">coords_tuple</code><a class="headerlink" href="#stann.Point.coords_tuple" title="Permalink to this definition">¶</a></dt>
-<dd><p>Immutable python tuple that represents the coordinates of the point.
+<code class="descname">coords_tuple</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#stann.Point.coords_tuple" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an immutable python tuple that represents the coordinates of the point.
 Usage:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stann</span>
 
 <span class="n">stann</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">stann</span><span class="o">.</span><span class="n">DATA_TYPE_INT</span><span class="p">)</span>
 <span class="n">p</span> <span class="o">=</span> <span class="n">stann</span><span class="o">.</span><span class="n">newRandomPoint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">coords</span><span class="p">)</span>            <span class="c1"># [2, 4, 5]</span>
-<span class="n">p</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">coords_tuple</span><span class="p">)</span>      <span class="c1"># (2, 4, 3)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">coords</span><span class="p">())</span>            <span class="c1"># [2, 4, 5]</span>
+<span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">coords_tuple</span><span class="p">())</span>      <span class="c1"># (2, 4, 3)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -233,7 +234,7 @@ Usage:</p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/docs.txt"
+      <li><a href="_sources/docs.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -255,11 +256,11 @@ Usage:</p>
       &copy;2016, Charles McClendon, Duncan Fisher.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.9</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
       
       |
-      <a href="_sources/docs.txt"
+      <a href="_sources/docs.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

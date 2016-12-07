@@ -17,7 +17,8 @@
         VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
@@ -25,7 +26,6 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="stann_for_python 1.0 documentation" href="index.html" />
     <link rel="next" title="3. Documentation" href="docs.html" />
     <link rel="prev" title="1. Introduction" href="intro.html" />
    
@@ -81,14 +81,14 @@ POINT_TYPE is the type of point you choose to use from the original
 Stann library; this value defaults to dpoint. Example usage:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stann</span>
 
-<span class="n">stann</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">stann</span><span class="o">.</span><span class="n">DATA_TYPE_INT</span><span class="p">)</span>
+<span class="n">stann</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">stann</span><span class="o">.</span><span class="n">DATA_TYPE_INT</span><span class="p">)</span>
 <span class="n">int_5d</span> <span class="o">=</span> <span class="n">stann</span><span class="o">.</span><span class="n">newRandomPoint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
 
 <span class="n">stann</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">stann</span><span class="o">.</span><span class="n">DATA_TYPE_FLOAT</span><span class="p">)</span>
 <span class="n">float_2d</span> <span class="o">=</span> <span class="n">stann</span><span class="o">.</span><span class="n">newRandomPoint</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">int_5d</span><span class="o">.</span><span class="n">coords_tuple</span><span class="p">)</span>        <span class="c1"># (14, 95, 19, 51, 65)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">float_2d</span><span class="o">.</span><span class="n">coords</span><span class="p">)</span>            <span class="c1"># (24.48573, 83.42035)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">int_5d</span><span class="o">.</span><span class="n">coords_tuple</span><span class="p">())</span>        <span class="c1"># (14, 95, 19, 51, 65)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">float_2d</span><span class="o">.</span><span class="n">coords</span><span class="p">())</span>            <span class="c1"># (24.48573, 83.42035)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -112,7 +112,7 @@ Stann library; this value defaults to dpoint. Example usage:</p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/config.txt"
+      <li><a href="_sources/config.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -134,11 +134,11 @@ Stann library; this value defaults to dpoint. Example usage:</p>
       &copy;2016, Charles McClendon, Duncan Fisher.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.9</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
       
       |
-      <a href="_sources/config.txt"
+      <a href="_sources/config.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 
