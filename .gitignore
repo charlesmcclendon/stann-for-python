@@ -3,3 +3,4 @@
 stann_backend_wrap.cxx
 stann_backend.py
 *.pyc
+__pyacache__/

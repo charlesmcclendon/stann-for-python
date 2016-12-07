@@ -12,6 +12,24 @@
 
 %enddef
 
+%define zorder_lt(D)
+    zorder_lt__template(unsigned short, UShort, D)
+    zorder_lt__template(short, Short,           D)
+    zorder_lt__template(unsigned int, UInt,     D)
+    zorder_lt__template(int, Int,               D)
+    zorder_lt__template(unsigned long, ULong,   D)
+    zorder_lt__template(long, Long,             D)
+    zorder_lt__template(float, Float,           D)
+    zorder_lt__template(double, Double,         D)
+%enddef
+
+zorder_lt(1)
+zorder_lt(2)
+zorder_lt(3)
+zorder_lt(4)
+zorder_lt(5)
+
+/*
 zorder_lt__template(unsigned short, UShort, 1)
 zorder_lt__template(short, Short,           1)
 zorder_lt__template(unsigned int, UInt,     1)
@@ -56,4 +74,4 @@ zorder_lt__template(unsigned long, ULong,   5)
 zorder_lt__template(long, Long,             5)
 zorder_lt__template(float, Float,           5)
 zorder_lt__template(double, Double,         5)
-
+*/

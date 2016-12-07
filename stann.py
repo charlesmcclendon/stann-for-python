@@ -91,6 +91,12 @@ def sfcnn_knng(pointVector, n, k, epsilon=0.0, num_threads=None):
 def zorderLT():
     return getStannClass("zorderLT", hasPoint=True)()
 
+def gmst(data, answer):
+    return getStannFunction("gmst", hasPoint=True)(data, answer, 1, 500)
+
+def bfgmst(data, answer):
+    return getStannFunction("bfgmst", hasPoint=True)(data, answer)
+
 def newRandomPoint(min_val, max_val):
     func = getStannFunction("newRandomPoint", hasPoint=True)
     return func(min_val, max_val)
@@ -99,6 +105,10 @@ def setPointHelper(point, index, value):
     point.coords()[index] = value
 
 def configure(dim, data_type, point_type=POINT_TYPE_DPOINT):
+    global DIM
+    global DATA_TYPE
+    global POINT_TYPE
+
     DIM = dim
     DATA_TYPE = data_type
     POINT_TYPE = POINT_TYPE_DPOINT

@@ -14,6 +14,8 @@
 %template(FloatVector)    std::vector<float>;
 %template(DoubleVector)   std::vector<double>;
 
+
+
 %include "carrays.i"
 %array_class(char               , Int8Array);
 %array_class(unsigned char      , UInt8Array);
@@ -32,7 +34,6 @@
 %include "stann_inc_test_hpp.i"
 %include "stann_inc_dpoint_hpp.i"
 %include "stann_inc_bruteNN_hpp.i"
-%include "stann_inc_sfcnn_hpp.i"
 %include "stann_inc_sfcnn_hpp.i"
 %include "stann_inc_sfcnn_knng_hpp.i"
 %include "stann_inc_zorderLT.i"
