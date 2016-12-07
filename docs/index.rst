@@ -6,12 +6,15 @@
 Welcome to stann_for_python's documentation!
 ============================================
 
-Contents:
+Content:
 
 .. toctree::
    :maxdepth: 2
+   :numbered:
 
-
+   intro
+   config
+   docs
 
 Indices and tables
 ==================

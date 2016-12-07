@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Welcome to stann_for_python’s documentation! &#8212; stann_for_python 1.0 documentation</title>
+    <title>1. Introduction &#8212; stann_for_python 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -25,8 +25,9 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="stann_for_python 1.0 documentation" href="#" />
-    <link rel="next" title="1. Introduction" href="intro.html" />
+    <link rel="top" title="stann_for_python 1.0 documentation" href="index.html" />
+    <link rel="next" title="2. Configuration" href="config.html" />
+    <link rel="prev" title="Welcome to stann_for_python’s documentation!" href="index.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -42,29 +43,27 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="welcome-to-stann-for-python-s-documentation">
-<h1>Welcome to stann_for_python&#8217;s documentation!<a class="headerlink" href="#welcome-to-stann-for-python-s-documentation" title="Permalink to this headline">¶</a></h1>
-<p>Content:</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="config.html">2. Configuration</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="docs.html">3. Documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="docs.html#algorithm-classes">3.1. Algorithm Classes</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
-<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
-<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
-</ul>
+  <div class="section" id="introduction">
+<h1>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>The stann python module wraps the C++ Stann library which
+implements a number of nearest neighbor algorithms and custom
+data types.
+The Stann library relies heavily upon C++ class and function
+templating, a feature not found in python. We used Swig to
+generate the interface but the only way to make the templates
+accessible in python was to recreate each function and class
+instantiation with every combination of template parameters.
+This results in a huge set of functions and classes with long
+and confusing names that are kept in the stann_backend module.
+The main difficulty in creating a python wrapper for Stann
+is finding a way to handle all the function and class templates
+behind the scenes so that we can deliver concise and intuitive
+function and class names to users.
+The main idea behind our solution is to provide a function
+<a class="reference internal" href="config.html#configure" title="configure"><code class="xref py py-func docutils literal"><span class="pre">configure()</span></code></a> which allows you to configure the global module variables.</p>
+<p>After configuring these values you can call stann functions like
+<a class="reference internal" href="config.html#newRandomPoint" title="newRandomPoint"><code class="xref py py-func docutils literal"><span class="pre">newRandomPoint()</span></code></a> and classes like <a class="reference internal" href="config.html#bruteNN" title="bruteNN"><code class="xref py py-func docutils literal"><span class="pre">bruteNN()</span></code></a> without having to specify
+the dimension and data type of the vector space each time.</p>
 </div>
 
 
@@ -72,24 +71,19 @@
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="#">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Welcome to stann_for_python&#8217;s documentation!</a></li>
-<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
-</ul>
-<div class="relations">
+        <div class="sphinxsidebarwrapper"><div class="relations">
 <h3>Related Topics</h3>
 <ul>
-  <li><a href="#">Documentation overview</a><ul>
-      <li>Next: <a href="intro.html" title="next chapter">1. Introduction</a></li>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to stann_for_python&#8217;s documentation!</a></li>
+      <li>Next: <a href="config.html" title="next chapter">2. Configuration</a></li>
   </ul></li>
 </ul>
 </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/index.txt"
+      <li><a href="_sources/intro.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -115,7 +109,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
       
       |
-      <a href="_sources/index.txt"
+      <a href="_sources/intro.txt"
           rel="nofollow">Page source</a>
     </div>
 
