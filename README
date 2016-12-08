@@ -1,0 +1,15 @@
+To build the stann_backend module required by stann.py, you must run build_swig.sh
+This shell script requires swig 3.0.10 and this script may be modified to look
+for swig in a different path. The build make take 3-5 minutes due to template
+compilation.
+
+This repository contains a copy of the include directory from STANN but none of the
+STANN headers have been modified so the script may be configured to look elsewhere
+for the STANN headers.
+
+To test, you may run stann_tests.py, which runs a battery of unit tests based on
+the test.cpp in STANN's source repository.
+
+When the library is built, a directory called stann is placed in the distrib
+directory, this directory may be used as a the package directory and distributed
+as a regular python package.
